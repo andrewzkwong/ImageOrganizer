@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright 2016 Andrew Z Kwong.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.imageorganizer.FolderManagerController">
+  <children>
+    <TableView id="tableViewManage" fx:id="tableViewManage" prefHeight="297.0" prefWidth="217.0" AnchorPane.bottomAnchor="51.0" AnchorPane.leftAnchor="58.0" AnchorPane.rightAnchor="325.0" AnchorPane.topAnchor="52.0">
+      <columns>
+        <TableColumn prefWidth="75.0" text="Folder" fx:id="tableFolderManage" />
+        <TableColumn prefWidth="75.0" text="Key" fx:id="tableKeyManage" />
+      </columns>
+    </TableView>
+    <Button fx:id="addBindingButton" layoutX="395.0" layoutY="136.0" mnemonicParsing="false" onAction="#openAddDialog" text="Add Binding" />
+    <Button fx:id="deleteBindingButton" layoutX="389.0" layoutY="227.0" mnemonicParsing="false" onAction="#deleteFocusedRow" text="Delete Binding" />
+    <Button layoutX="514.0" layoutY="339.0" mnemonicParsing="false" text="Close" onAction="#closeWindow"/>
+  </children>
+</AnchorPane>

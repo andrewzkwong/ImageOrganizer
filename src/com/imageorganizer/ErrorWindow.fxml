@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+Copyright 2016 Andrew Z Kwong.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="145.0" prefWidth="350.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.imageorganizer.ErrorWindowController">
+  <children>
+    <Text fx:id="errorText" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" AnchorPane.rightAnchor="175.0" />
+    <Button fx:id="okButton" layoutX="262.0" layoutY="96.0" mnemonicParsing="false" onAction="#closeWindow" text="OK" />
+  </children>
+</AnchorPane>

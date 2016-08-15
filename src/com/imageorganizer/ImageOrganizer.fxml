@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+Copyright 2016 Andrew Z Kwong.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#sortImage" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.imageorganizer.ImageOrganizerController">
+  <children>
+    <SplitPane fx:id="splitTableImage" dividerPositions="0.005016722408026756" focusTraversable="true" prefHeight="376.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="24.0">
+      <items>
+        <AnchorPane fx:id="tableAnchor" minHeight="0.0" minWidth="0.0" prefHeight="374.0" prefWidth="41.0">
+          <children>
+            <TableView fx:id="tableDestinationFolders" pickOnBounds="false" prefHeight="374.0" prefWidth="178.0" tableMenuButtonVisible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="Folder" fx:id="tableFolder" />
+                <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="102.0" text="Key" fx:id="tableKey" />
+              </columns>
+            </TableView>
+          </children>
+        </AnchorPane>
+        <AnchorPane fx:id="imageViewAnchor" minHeight="0.0" minWidth="0.0" prefHeight="374.0" prefWidth="256.0">
+          <children>
+            <ImageView fx:id="imageViewer" fitHeight="0.0" fitWidth="0.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <Text fx:id="fileNameText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+          </children>
+        </AnchorPane>
+      </items>
+    </SplitPane>
+    <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#chooseSourceFolder" text="Select Source Folder" />
+            <MenuItem mnemonicParsing="false" onAction="#openAddDialog" text="Add Destination Folder" />
+            <MenuItem mnemonicParsing="false" onAction="#openManageWindow" text="Manage Destination Folders" />
+            <MenuItem mnemonicParsing="false" onAction="#closeProgram" text="Close" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="View">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#openPane" text="Folder Reference" fx:id="folderReferenceOpen" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+  </children>
+</AnchorPane>
