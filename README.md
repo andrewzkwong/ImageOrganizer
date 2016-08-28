@@ -10,4 +10,4 @@ ImageOrganizer is a JavaFX based desktop application that allows you to quickly 
 
 The runnable .jar is included in the repository, and a Windows executable program is included in the RELEASES folder.
 
-[Notes on the development of ImageOrganizer can be found here.](https://andrewzkwong.github.com/devnotes/imageorganizer)
+[Notes on the development of ImageOrganizer can be found here.](https://andrewzkwong.github.io/devnotes/imageorganizer)
