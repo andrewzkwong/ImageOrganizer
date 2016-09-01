@@ -15,6 +15,7 @@
  */
 package com.imageorganizer;
 
+import static com.imageorganizer.ViewUtilities.*;
 import static com.imageorganizer.FolderBinding.*;
 import java.io.File;
 import java.io.IOException;
@@ -27,6 +28,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.Node;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
@@ -34,7 +36,6 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
-import javafx.stage.Modality;
 
 
 /**
@@ -78,13 +79,7 @@ public class AddDialogController implements Initializable {
             ErrorWindowController errorController
                     = fxmlFolders.<ErrorWindowController>getController();
             errorController.setErrorText("Cannot write to this folder");
-            Stage errorStage = new Stage();
-            errorStage.initOwner(keyNameField.getScene().getWindow());
-            errorStage.initModality(Modality.WINDOW_MODAL);
-            errorStage.setScene(scene);
-            errorStage.setResizable(false);
-            errorStage.setTitle("Error");
-            errorStage.showAndWait();
+            createNewWindow(scene, (Node) cancelAddDialog, "Error");
             }catch (IOException e){
                 System.out.println("Missing FXML file");
             }

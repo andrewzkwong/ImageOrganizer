@@ -1,6 +1,6 @@
-# ImageOrganizer
+# One Press Image Organizer
 
-ImageOrganizer is a JavaFX based desktop application that allows you to quickly sort your image files into folders with the press of a button rather than with unwieldy drag-and-drop actions. Here's how to use it:
+One Press Image Organizer is a JavaFX based desktop application that allows you to quickly sort your image files into folders with the press of a button rather than with unwieldy drag-and-drop actions. Here's how to use it:
 
 1. Choose a source folder that has the images you want to sort by going to File->Select Source Folder.
 
@@ -10,4 +10,4 @@ ImageOrganizer is a JavaFX based desktop application that allows you to quickly 
 
 The runnable .jar is included in the repository, and a Windows executable program is included in the RELEASES folder.
 
-[Notes on the development of ImageOrganizer can be found here.](https://andrewzkwong.github.io/devnotes/imageorganizer)
+[Notes on the development of One Press Image Organizer can be found here.](https://andrewzkwong.github.io/devnotes/imageorganizer)

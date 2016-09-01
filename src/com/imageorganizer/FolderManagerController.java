@@ -30,8 +30,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.input.KeyCode;
+import javafx.scene.Node;
 import javafx.stage.Stage;
-import javafx.stage.Modality;
 import javafx.collections.FXCollections;
 
 /**
@@ -56,13 +56,7 @@ public class FolderManagerController implements Initializable {
             AddDialogController addDialogController
                     = fxmlAddDialog.<AddDialogController>getController();
             addDialogController.passFolderBinding(folderBinding);
-            Stage addStage = new Stage();
-            addStage.initOwner(tableViewManage.getScene().getWindow());
-            addStage.initModality(Modality.WINDOW_MODAL);
-            addStage.setScene(scene);
-            addStage.setResizable(false);
-            addStage.setTitle("Add Destination Folder");
-            addStage.showAndWait();
+            createNewWindow(scene, (Node) tableViewManage, "Add Destination Folder");
             tableViewManage.setItems(FXCollections.observableArrayList(folderBinding.getTableList()));
         } catch (IOException e) {
             System.err.println("Caught IOException from no AddDialog.fxml");

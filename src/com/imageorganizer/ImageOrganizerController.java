@@ -27,7 +27,6 @@ import javafx.fxml.Initializable;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.stage.Stage;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.TableView;
@@ -37,7 +36,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.image.Image;
 import javafx.scene.text.Text;
-import javafx.stage.Modality;
+import javafx.scene.Node;
 import javafx.stage.DirectoryChooser;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -96,13 +95,7 @@ public class ImageOrganizerController implements Initializable {
             AddDialogController addDialogController
                     = fxmlAddDialog.<AddDialogController>getController();
             addDialogController.passFolderBinding(folderBinding);
-            Stage addStage = new Stage();
-            addStage.initOwner(rootPane.getScene().getWindow());
-            addStage.initModality(Modality.WINDOW_MODAL);
-            addStage.setScene(scene);
-            addStage.setResizable(false);
-            addStage.setTitle("Add Destination Folder");
-            addStage.showAndWait();
+            createNewWindow(scene, (Node) rootPane, "Add Destination Folder");
             tableDestinationFolders.setItems(FXCollections.observableArrayList(folderBinding.getTableList()));
         } catch (IOException e) {
             System.err.println("Caught IOException from no AddDialog.fxml");
@@ -117,13 +110,7 @@ public class ImageOrganizerController implements Initializable {
             FolderManagerController foldersController
                     = fxmlFolders.<FolderManagerController>getController();
             foldersController.passFolderBinding(folderBinding);
-            Stage manageStage = new Stage();
-            manageStage.initOwner(rootPane.getScene().getWindow());
-            manageStage.initModality(Modality.WINDOW_MODAL);
-            manageStage.setScene(scene);
-            manageStage.setResizable(false);
-            manageStage.setTitle("Manage Destination Folders");
-            manageStage.showAndWait();
+            createNewWindow(scene, (Node) rootPane, "Folder Manager");
             tableDestinationFolders.setItems(FXCollections.observableArrayList(folderBinding.getTableList()));
         } catch (IOException e) {
             System.err.println("Caught IOException from no FolderManager.fxml ");
@@ -148,13 +135,7 @@ public class ImageOrganizerController implements Initializable {
                         = fxmlReplaceDialog.<ReplaceDialogController>getController();
                 replaceDialogController.passFolderBinding(folderBinding);
                 replaceDialogController.passKeyCode(keyPressed.getCode());
-                Stage replaceStage = new Stage();
-                replaceStage.initOwner(rootPane.getScene().getWindow());
-                replaceStage.initModality(Modality.WINDOW_MODAL);
-                replaceStage.setScene(scene);
-                replaceStage.setResizable(false);
-                replaceStage.setTitle("Error: Already Exists");
-                replaceStage.showAndWait();
+                createNewWindow(scene, (Node) rootPane, "Name Already Exists");
                 imageViewer.setImage(new Image(folderBinding.getCurrentImage().toURI().toString()));
             }
         } catch (IOException missingFolder) {
@@ -166,13 +147,7 @@ public class ImageOrganizerController implements Initializable {
                         = fxmlFolders.<ErrorWindowController>getController();
                 errorController.setErrorText("Either the destination folder or the image you're trying to move "
                         + "\n has been moved or deleted");
-                Stage errorStage = new Stage();
-                errorStage.initOwner(rootPane.getScene().getWindow());
-                errorStage.initModality(Modality.WINDOW_MODAL);
-                errorStage.setScene(scene);
-                errorStage.setResizable(false);
-                errorStage.setTitle("Error");
-                errorStage.showAndWait();
+                createNewWindow(scene, (Node) rootPane, "Error");
             } catch (IOException missingFXML) {
                 System.err.println("Caught IOException from no ErrorWindow.fxml");
             }

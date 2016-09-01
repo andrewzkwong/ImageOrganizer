@@ -22,15 +22,21 @@ import javafx.beans.value.ObservableValue;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.input.KeyCode;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
 /**
- * ViewUtilities is the utility class that provides
- * access to various static methods that help with
- * managing the view in the user interface.
+ *ViewUtilities is the utility class that provides
+access to static methods that help with
+managing the view for this application.
+ * 
+ * 
  */
-public class ViewUtilities {
 
+public final class ViewUtilities {
     public static void bindTableColumnWidths(TableColumn folders, TableColumn keys, TableView table) {
         folders.prefWidthProperty().bind(table.widthProperty().multiply(0.75));
         keys.prefWidthProperty().bind(table.widthProperty().subtract(folders.widthProperty()));
@@ -47,5 +53,15 @@ public class ViewUtilities {
                 return new SimpleStringProperty(p.getValue().getKey().getName());
             }
         });
-    }    
+    }
+    
+    public static void createNewWindow(Scene scene, Node node, String titleText){
+        Stage newStage = new Stage();
+        newStage.initOwner(node.getScene().getWindow());
+        newStage.initModality(Modality.WINDOW_MODAL);
+        newStage.setScene(scene);
+        newStage.setResizable(false);
+        newStage.setTitle(titleText);
+        newStage.showAndWait();
+    }
 }
